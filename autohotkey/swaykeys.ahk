@@ -89,5 +89,11 @@ Komorebi(cmd) {
 ; Win + Shift + R -> reload komorebi config
 #+r::Komorebi("reload-configuration")
 
-; Win + Shift + C -> parar komorebi
-#+c::Komorebi("stop")
+; Win + Shift + C -> toggle komorebi on/off
+#+c:: {
+    if ProcessExist("komorebi.exe") {
+        Komorebi("stop")
+    } else {
+        Komorebi("start")
+    }
+}
